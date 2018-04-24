@@ -27,13 +27,14 @@ def getLista(dic):
 						recor.append(actual)
 					if actual in nodos:
 						nodos.remove(actual)
-					actual = int(dic[actual].ant)
+					try:
+						actual = int(dic[actual].ant)
+					except:
+						actual = dic[actual].ant
 				lista1.append(actual)
 				lista1.reverse()
 				listaFinal.append()
 	return listaFinal
-
-
 
 def dijkstra(dic):
 	i = 0
@@ -82,12 +83,12 @@ def tdd(f, grafo, arbol):
 
 print('++++++++++tdd++++++++++')
 
-n1 = nodo(True, [2,3],[1,3])
-n2 = nodo(False, [1,3,4], [1,5,2])
-n3 = nodo(False, [1,2,4], [3,5,2])
-n4 = nodo(False, [2,3], [2,2])
+n1 = nodo(True, ['b','c'],[1,3])
+n2 = nodo(False, ['a','c','d'], [1,5,2])
+n3 = nodo(False, ['a','b','d'], [3,5,2])
+n4 = nodo(False, ['b','c'], [2,2])
 
-print(tdd(dijkstra, {1:n1, 2:n2, 3:n3, 4:n4}))
+print(tdd(dijkstra, {'a':n1, 'b':n2, 'c':n3, 'd':n4}))
 
 print('++++++++++tdd2++++++++++')
 
